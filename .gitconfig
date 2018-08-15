@@ -1,0 +1,28 @@
+[color "status"]
+	changed = yellow
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore
+[merge]
+	conflictstyle = diff3
+	tool = Kaleidoscope
+[mergetool]
+	keepBackup = false
+	path = nvim
+	prompt = false
+
+#[mergetool "vimdiff"]
+#	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[user]
+	email = jjdonov@gmail.com
+	name = John Donovan
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
