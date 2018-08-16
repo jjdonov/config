@@ -7,6 +7,7 @@ endfunction
 
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -87,6 +88,10 @@ nmap <Leader>] :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
+
+" CTRLp Customizations
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " syntax highlight heroku logs
 au BufNewFile,BufRead,BufReadPost *.log set filetype=messages
