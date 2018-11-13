@@ -11,11 +11,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'chriskempson/base16-vim'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-
+" Linting / Fixing
+Plug 'w0rp/ale'
 
 " JS tooling
 Plug 'pangloss/vim-javascript'
@@ -61,11 +61,19 @@ nnoremap <C-H> <C-W><C-H>
 "
 
 let g:airline_powerline_fonts = 1 
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'bubblegum'
 "Enable the list of buffers at the top
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemode = ':t'
+
+" ale (async linting engine) configuration
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_linters= {
+\ 'javascript': ['eslint']
+\}
+let g:ale_javascript_prettier_options = '--single-quote'
 
 let g:javascript_plugin_jsdoc = 1
 
@@ -92,6 +100,10 @@ let NERDTreeQuitOnOpen = 1
 " CTRLp Customizations
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=100
+" Don't search gitignored files
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " syntax highlight heroku logs
 au BufNewFile,BufRead,BufReadPost *.log set filetype=messages

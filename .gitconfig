@@ -5,7 +5,7 @@
 	excludesfile = ~/.gitignore
 [merge]
 	conflictstyle = diff3
-	tool = Kaleidoscope
+	tool = opendiff
 [mergetool]
 	keepBackup = false
 	path = nvim
@@ -25,4 +25,9 @@
 [difftool]
 	prompt = false
 [diff]
-	tool = Kaleidoscope
+	tool = opendiff
+[difftool "opendiff"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "opendiff"]
+	cmd = opendiff -merge \"$MERGED\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = false
