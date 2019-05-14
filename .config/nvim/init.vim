@@ -5,6 +5,9 @@ function! DoRemote(arg)
 	UpdateRemotePlugins
 endfunction
 
+" colorscheme
+Plug 'morhetz/gruvbox'
+
 Plug 'sheerun/vim-polyglot'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -12,10 +15,14 @@ Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " Linting / Fixing
 Plug 'w0rp/ale'
+
+"Git
+Plug 'tpope/vim-fugitive'
 
 " JS tooling
 Plug 'pangloss/vim-javascript'
@@ -34,6 +41,10 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
+"colo slate
+set background=dark
+colorscheme gruvbox
+set termguicolors
 
 set number	" show line numbers
 set showmatch	" show matching parens
@@ -56,12 +67,15 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Easy refresh. Useful after switching branches on git, etc.
+nnoremap <F5> :checktime<CR>
+
 "
 " Plugin Configuration
 "
 
 let g:airline_powerline_fonts = 1 
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'gruvbox'
 "Enable the list of buffers at the top
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
@@ -70,6 +84,7 @@ let g:airline#extensions#tabline#fnamemode = ':t'
 " ale (async linting engine) configuration
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['json'] = ['fixjson']
 let g:ale_linters= {
 \ 'javascript': ['eslint']
 \}
