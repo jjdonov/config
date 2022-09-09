@@ -1,0 +1,34 @@
+#
+# Bootstrap all useful software installable through brew
+#
+
+tap "ankitpokhrel/jira-cli"
+tap "homebrew/cask-fonts"
+
+brew "aws-cli"
+brew "cfn-lint"
+brew "diff-so-fancy"
+brew "fnm"
+brew "fpp"
+brew "gh"
+brew "glow"
+brew "imagemagick"
+brew "jira-cli"
+brew "jq"
+brew "neovim"
+brew "mas"
+brew "pandoc"
+brew "skhd"
+brew "the_silver_searcher"
+brew "withgraphite/tap/graphite"
+brew "yabai"
+
+cask "cleanshot"
+cask "dbeaver-community"
+cask "docker"
+cask "font-jetbrains-mono-nerd-font"
+cask "postman"
+
+mas "Kaleidoscope"
+mas "Notability"
+mas "Trello"
